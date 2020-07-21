@@ -61,6 +61,7 @@ def is_valid(board, num, pos):
 
 
 def solve(board):
+    # Gets the coordinates of the empty cell
     find = find_empty(board)
 
     if not find:
@@ -70,8 +71,10 @@ def solve(board):
 
     for i in range(1, 10):
         if is_valid(board, i, (row, col)):
+            # If it's valid, then it sets the value to the i
             board[row][col] = i
 
+            # Here the function will be recursively called until the condition is fulfilled
             if solve(board):
                 return True
 
